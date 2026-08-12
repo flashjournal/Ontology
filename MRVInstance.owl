@@ -1,0 +1,1023 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+ xmlns="http://example.org/mrv#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+ xmlns:mrv="http://example.org/mrv#">
+
+<owl:Ontology rdf:about="http://example.org/mrv-instance">
+    <owl:imports rdf:resource="http://example.org/mrv"/>
+</owl:Ontology>
+
+<!-- Registry -->
+
+<owl:NamedIndividual rdf:about="#SRNIndonesia">
+    <rdf:type rdf:resource="#SRN"/>
+    <registryName>SRN Indonesia</registryName>
+</owl:NamedIndividual>
+
+<!-- Regulation -->
+
+<owl:NamedIndividual rdf:about="#Perpres1102025">
+    <rdf:type rdf:resource="#PresidentialRegulation"/>
+    <regulationNumber>110/2025</regulationNumber>
+</owl:NamedIndividual>
+
+<!-- Methodology -->
+
+<owl:NamedIndividual rdf:about="#VM0015">
+    <rdf:type rdf:resource="#VERRAMethodology"/>
+    <methodologyCode>VM0015</methodologyCode>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AM001">
+    <rdf:type rdf:resource="#NationalMethodology"/>
+    <methodologyCode>AM001</methodologyCode>
+</owl:NamedIndividual>
+
+<!-- Instance 1-->
+
+<!-- ORGANIZATION -->
+
+<owl:NamedIndividual rdf:about="#PTNagataBioEnergi">
+    <rdf:type rdf:resource="#ProjectDeveloper"/>
+    <rdfs:label>
+        PT Nagata Bio Energi
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- LOCATION -->
+
+<owl:NamedIndividual rdf:about="#WestJava">
+    <rdf:type rdf:resource="#Province"/>
+    <provinceName>West Java</provinceName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Bogor">
+    <rdf:type rdf:resource="#Regency"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sukamakmur">
+    <rdf:type rdf:resource="#District"/>
+</owl:NamedIndividual>
+
+<!-- PROJECT -->
+
+<owl:NamedIndividual rdf:about="#Project_Nagata_Biogas">
+    <rdf:type rdf:resource="#RenewableEnergy"/>
+    <rdf:type rdf:resource="#WasteManagement"/>
+    <projectID>
+        PRJ-2023-10134
+    </projectID>
+
+    <projectName>
+        Pembangkit Listrik Tenaga Biogas Sukadamai 2.4 MW dari Recovery Biogas pada Pengolahan Limbah POME
+    </projectName>
+
+    <projectStatus>
+        Published
+    </projectStatus>
+
+    <locatedIn rdf:resource="#Sukamakmur"/>
+    <usesMethodology rdf:resource="#NationalMethodology001"/>
+    <governedBy rdf:resource="#Perpres1102025"/>
+    <hasCarbonCredit rdf:resource="#CarbonCredit_Nagata"/>
+</owl:NamedIndividual>
+
+<!-- DOCUMENT / DRAM -->
+<owl:NamedIndividual rdf:about="#DRAM_Nagata">
+    <rdf:type rdf:resource="#DRAM"/>
+    <rdfs:label>DRAM Nagata</rdfs:label>
+</owl:NamedIndividual>
+
+<!-- DRAM Fiinal -->
+<owl:NamedIndividual rdf:about="#DRAMFinal_Nagata">
+    <rdf:type rdf:resource="#DRAMFinal"/>
+    <documentStatus>Approved</documentStatus>
+    <basedOn rdf:resource="#ValidationReport_Nagata"/>
+</owl:NamedIndividual>
+
+<!-- LCAM REPORT -->
+<owl:NamedIndividual rdf:about="#LCAM_Nagata">
+    <rdf:type rdf:resource="#LCAM"/>
+    <documentNumber>LCAM-2025-001</documentNumber>
+    <documentStatus>Submitted</documentStatus>
+    <basedOn rdf:resource="#DRAMFinal_Nagata"/>
+    <hasEvidence rdf:resource="#MonitoringData_Nagata"/>
+</owl:NamedIndividual>
+
+
+<!-- METHODOLOGY -->
+
+<owl:NamedIndividual rdf:about="#NationalMethodology001">
+    <rdf:type rdf:resource="#NationalMethodology"/>
+    <methodologyCode>
+        SPEI-ENERGI-001
+    </methodologyCode>
+</owl:NamedIndividual>
+
+<!-- VALIDATOR -->
+<owl:NamedIndividual rdf:about="#Validator01">
+    <rdf:type rdf:resource="#Validator"/>
+    <rdfs:label>
+        Validator01
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- VERIFIER -->
+<owl:NamedIndividual rdf:about="#Verifier01">
+    <rdf:type rdf:resource="#Verifier"/>
+        <rdfs:label>
+        Verifier01
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- VALIDATION -->
+<owl:NamedIndividual rdf:about="#Validation_Nagata">
+    <rdf:type rdf:resource="#Validation"/>
+    <validatedBy rdf:resource="#Validator01"/>
+    <hasDocument rdf:resource="#ValidationReport_Nagata"/>
+    <generatesReport rdf:resource="#ValidationReport_Nagata"/>
+</owl:NamedIndividual>
+
+<!-- VALIDATION REPORT -->
+<owl:NamedIndividual rdf:about="#ValidationReport_Nagata">
+    <rdf:type rdf:resource="#ValidationReport"/>
+    <documentNumber>
+        VAL-2025-001
+    </documentNumber>
+    <documentStatus>
+        Approved
+    </documentStatus>
+</owl:NamedIndividual>
+
+<!-- VERIFICATION -->
+
+<owl:NamedIndividual rdf:about="#Verification_Nagata">
+    <rdf:type rdf:resource="#Verification"/>
+    <verifiedBy rdf:resource="#Verifier01"/>
+    <!-- Point to LCAM as the primary report containing evidence -->
+    <hasDocument rdf:resource="#LCAM_Nagata"/>
+    <hasEvidence rdf:resource="#MonitoringData_Nagata"/>
+    <generatesReport rdf:resource="#VerificationReport_Nagata"/>
+</owl:NamedIndividual>
+
+<!-- VERIFICATION REPORT -->
+
+<owl:NamedIndividual rdf:about="#VerificationReport_Nagata">
+    <rdf:type rdf:resource="#VerificationReport"/>
+    <documentNumber>
+        VER-2025-001
+    </documentNumber>
+    <documentStatus>
+        Verified
+    </documentStatus>
+</owl:NamedIndividual>
+
+<!-- EVIDENCE -->
+
+<owl:NamedIndividual rdf:about="#MonitoringData_Nagata">
+    <rdf:type rdf:resource="#MonitoringData"/>
+    <evidenceType>
+        POME Monitoring Data
+    </evidenceType>
+</owl:NamedIndividual>
+
+<!-- CARBON CREDIT -->
+
+<owl:NamedIndividual rdf:about="#CarbonCredit_Nagata">
+    <rdf:type rdf:resource="#CarbonCredit"/>
+    <carbonAmount
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+        47799
+    </carbonAmount>
+    <serialNumber>
+        SPE-10-PR-V-2023-10134 (1-47799)
+    </serialNumber>
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-12-24
+    </issueDate>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- CERTIFICATE -->
+
+<owl:NamedIndividual rdf:about="#Certificate_Nagata">
+    <rdf:type rdf:resource="#SPECertificate"/>
+    <certificateNumber>
+        SPE-10-PR-V-2023-10134
+    </certificateNumber>
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-12-24
+    </issueDate>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- REGISTRY -->
+
+<owl:NamedIndividual rdf:about="#SPEI">
+    <rdf:type rdf:resource="#Registry"/>
+    <registryID>
+        SPEI
+    </registryID>
+    <registryName>
+        Sistem Pengendalian Emisi Indonesia
+    </registryName>
+</owl:NamedIndividual>
+
+<!-- PUBLICATION -->
+
+<owl:NamedIndividual rdf:about="#Publication_Nagata">
+    <rdf:type rdf:resource="#Publication"/>
+    <issuesCertificate rdf:resource="#Certificate_Nagata"/>
+</owl:NamedIndividual>
+
+
+
+
+<!-- Data Linked -->
+<!-- Proposal -->
+
+<rdf:Description rdf:about="#Proposal_Nagata">
+    <submittedBy rdf:resource="#PTNagataBioEnergi"/>
+    <hasDocument rdf:resource="#DRAM_Nagata"/>
+</rdf:Description>
+
+<!-- Project -->
+
+<rdf:Description rdf:about="#Project_Nagata_Biogas">
+    <hasDocument rdf:resource="#DRAM_Nagata"/>
+    <hasDocument rdf:resource="#DRAMFinal_Nagata"/>
+    <hasDocument rdf:resource="#LCAM_Nagata"/>
+    <hasDocument rdf:resource="#ValidationReport_Nagata"/>
+    <hasDocument rdf:resource="#VerificationReport_Nagata"/>
+</rdf:Description>
+
+<!-- DRAM -->
+
+<rdf:Description rdf:about="#DRAM_Nagata">
+    <basedOn rdf:resource="#Proposal_Nagata"/>
+</rdf:Description>
+
+<!-- DRAMFinal -->
+
+<rdf:Description rdf:about="#DRAMFinal_Nagata">
+    <basedOn rdf:resource="#DRAM_Nagata"/>
+</rdf:Description>
+
+<!-- Validation -->
+
+<rdf:Description rdf:about="#Validation_Nagata">
+    <basedOn rdf:resource="#DRAMFinal_Nagata"/>
+</rdf:Description>
+
+<!-- LCAM -->
+
+<rdf:Description rdf:about="#LCAM_Nagata">
+    <basedOn rdf:resource="#DRAMFinal_Nagata"/>
+</rdf:Description>
+
+<!-- Verification -->
+
+<rdf:Description rdf:about="#Verification_Nagata">
+    <basedOn rdf:resource="#LCAM_Nagata"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#VerificationReport_Nagata">
+    <basedOn rdf:resource="#LCAM_Nagata"/>
+</rdf:Description>
+
+<!-- Publication -->
+
+<rdf:Description rdf:about="#Publication_Nagata">
+    <basedOn rdf:resource="#Verification_Nagata"/>
+</rdf:Description>
+
+<!-- Certificate -->
+
+<rdf:Description rdf:about="#Certificate_Nagata">
+    <issuedUnder rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+<!-- Project -->
+
+<rdf:Description rdf:about="#Project_Nagata_Biogas">
+    <governedBy rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+<!-- Instance 2-->
+
+<!-- ORGANIZATION -->
+
+<owl:NamedIndividual rdf:about="#PTPertaminaPowerIndonesia">
+    <rdf:type rdf:resource="#ProjectDeveloper"/>
+    <rdfs:label>
+        PT Pertamina Power Indonesia
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- LOCATION -->
+
+<owl:NamedIndividual rdf:about="#NorthSumatera">
+    <rdf:type rdf:resource="#Province"/>
+    <provinceName>
+        North Sumatera
+    </provinceName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Simalungun">
+    <rdf:type rdf:resource="#Regency"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#SeiMangkei">
+    <rdf:type rdf:resource="#District"/>
+</owl:NamedIndividual>
+
+<!-- PROJECT -->
+
+<owl:NamedIndividual rdf:about="#Project_SeiMangkei_Biogas">
+    <rdf:type rdf:resource="#RenewableEnergy"/>
+    <projectID>
+        PRJ-2024-17599
+    </projectID>
+    <projectName>
+        [PNRE X PTPN III] Pembangkit Listrik Tenaga Biogas (PLTBg) Sei Mangkei 2.4 MW dari Recovery Biogas pada Pengolahan Limbah POME
+    </projectName>
+    <projectDescription>
+        Biogas power plant utilizing methane recovery from Palm Oil Mill Effluent (POME).
+    </projectDescription>
+    <projectStatus>
+        Published
+    </projectStatus>
+    <usesMethodology rdf:resource="#NationalMethodology001"/>
+    <locatedIn rdf:resource="#SeiMangkei"/>
+    <governedBy rdf:resource="#Perpres1102025"/>
+    <hasCarbonCredit rdf:resource="#CarbonCredit_SeiMangkei"/>
+</owl:NamedIndividual>
+
+
+<!-- METHODOLOGY -->
+
+<!-- VALIDATOR -->
+<owl:NamedIndividual rdf:about="#Validator02">
+    <rdf:type rdf:resource="#Validator"/>
+    <rdfs:label>
+        Validator02
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- VERIFIER -->
+<owl:NamedIndividual rdf:about="#Verifier02">
+    <rdf:type rdf:resource="#Verifier"/>
+    <rdfs:label>
+        Verifier02
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- VALIDATION -->
+<owl:NamedIndividual rdf:about="#Validation_SeiMangkei">
+    <rdf:type rdf:resource="#Validation"/>
+    <validatedBy rdf:resource="#Validator02"/>
+    <generatesReport rdf:resource="#ValidationReport_SeiMangkei"/>
+    <hasDocument rdf:resource="#ValidationReport_SeiMangkei"/>
+</owl:NamedIndividual>
+
+<!-- VALIDATION REPORT -->
+<owl:NamedIndividual rdf:about="#ValidationReport_SeiMangkei">
+    <rdf:type rdf:resource="#ValidationReport"/>
+    <documentNumber>
+        VAL-2025-002
+    </documentNumber>
+    <documentStatus>
+        Approved
+    </documentStatus>
+</owl:NamedIndividual>
+
+<!-- VERIFICATION -->
+<owl:NamedIndividual rdf:about="#Verification_SeiMangkei">
+    <rdf:type rdf:resource="#Verification"/>
+    <verifiedBy rdf:resource="#Verifier02"/>
+    <hasEvidence rdf:resource="#MonitoringData_SeiMangkei"/>
+    <generatesReport rdf:resource="#VerificationReport_SeiMangkei"/>
+</owl:NamedIndividual>
+
+<!-- VERIFICATION REPORT -->
+
+<owl:NamedIndividual rdf:about="#VerificationReport_SeiMangkei">
+    <rdf:type rdf:resource="#VerificationReport"/>
+    <documentNumber>
+        VER-2025-002
+    </documentNumber>
+    <documentStatus>
+        Verified
+    </documentStatus>
+</owl:NamedIndividual>
+
+<!-- EVIDENCE -->
+
+<owl:NamedIndividual rdf:about="#MonitoringData_SeiMangkei">
+    <rdf:type rdf:resource="#MonitoringData"/>
+    <evidenceType>
+        Continuous Biogas Monitoring Data
+    </evidenceType>
+</owl:NamedIndividual>
+
+<!-- CARBON CREDIT -->
+
+<owl:NamedIndividual rdf:about="#CarbonCredit_SeiMangkei">
+    <rdf:type rdf:resource="#CarbonCredit"/>
+    <carbonAmount
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+        8192
+    </carbonAmount>
+    <serialNumber>
+         SPE-10-PR-IV-2024-17599 (1 - 8192)
+    </serialNumber>
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-10-25
+    </issueDate>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- CERTIFICATE -->
+
+<owl:NamedIndividual rdf:about="#Certificate_SeiMangkei">
+    <rdf:type rdf:resource="#SPECertificate"/>
+    <certificateNumber>
+        SPE-10-PR-IV-2024-17599
+    </certificateNumber>
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-10-25
+    </issueDate>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- REGISTRY -->
+
+<owl:NamedIndividual rdf:about="#SPEI">
+    <rdf:type rdf:resource="#Registry"/>
+    <registryID>
+        SPEI
+    </registryID>
+    <registryName>
+        Sistem Pengendalian Emisi Indonesia
+    </registryName>
+</owl:NamedIndividual>
+
+<!-- PUBLICATION -->
+
+<owl:NamedIndividual rdf:about="#Publication_SeiMangkei">
+    <rdf:type rdf:resource="#Publication"/>
+    <issuesCertificate rdf:resource="#Certificate_SeiMangkei"/>
+</owl:NamedIndividual>
+
+<!-- Data Linked -->
+
+
+
+<!-- Project -->
+
+<rdf:Description rdf:about="#Project_SeiMangkei_Biogas">
+    <hasDocument rdf:resource="#DRAM_SeiMengkei"/>
+    <hasDocument rdf:resource="#DRAMFinal_SeiMengkei"/>
+    <hasDocument rdf:resource="#LCAM_SeiMengkei"/>
+    <hasDocument rdf:resource="#ValidationReport_SeiMangkei"/>
+    <hasDocument rdf:resource="#VerificationReport_SeiMangkei"/>
+</rdf:Description>
+
+<!-- Proposal -->
+
+<rdf:Description rdf:about="#Proposal_SeiMengkei">
+    <submittedBy rdf:resource="#PTPertaminaPowerIndonesia"/>
+    <hasDocument rdf:resource="#DRAM_SeiMengkei"/>
+</rdf:Description>
+
+<!-- DRAM -->
+
+<rdf:Description rdf:about="#DRAM_SeiMengkei">
+    <basedOn rdf:resource="#Proposal_SeiMengkei"/>
+</rdf:Description>
+
+<!-- DRAMFinal -->
+
+<rdf:Description rdf:about="#DRAMFinal_SeiMengkei">
+    <basedOn rdf:resource="#DRAM_SeiMengkei"/>
+</rdf:Description>
+
+<!-- Validation -->
+
+<rdf:Description rdf:about="#Validation_SeiMengkei">
+    <basedOn rdf:resource="#DRAMFinal_SeiMengkei"/>
+</rdf:Description>
+
+<!-- LCAM -->
+
+<rdf:Description rdf:about="#LCAM_SeiMengkei">
+    <basedOn rdf:resource="#DRAMFinal_SeiMengkei"/>
+</rdf:Description>
+
+<!-- Verification -->
+
+<rdf:Description rdf:about="#Verification_SeiMengkei">
+    <basedOn rdf:resource="#LCAM_SeiMengkei"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#VerificationReport_SeiMengkei">
+    <basedOn rdf:resource="#LCAM_SeiMangkei"/>
+</rdf:Description>
+
+<!-- Publication -->
+<rdf:Description rdf:about="#Publication_SeiMangkei">
+    <basedOn rdf:resource="#Verification_SeiMangkei"/>
+</rdf:Description>
+
+<!-- Certificate -->
+<rdf:Description rdf:about="#Certificate_SeiMangkei">
+    <issuedUnder rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+
+<!-- Project -->
+<rdf:Description rdf:about="#Project_SeiMangkei_Biogas">
+    <governedBy rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+
+<!-- Instance 3-->
+
+<!-- ORGANIZATION -->
+
+<owl:NamedIndividual rdf:about="#PTPN_IV_Regional3">
+    <rdf:type rdf:resource="#ProjectDeveloper"/>
+    <rdfs:label>
+        PT Perkebunan Nusantara IV Regional 3
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- LOCATION -->
+
+<owl:NamedIndividual rdf:about="#Riau">
+    <rdf:type rdf:resource="#Province"/>
+    <provinceName>
+        Riau
+    </provinceName>
+</owl:NamedIndividual>
+
+
+<!-- PROJECT -->
+
+<owl:NamedIndividual rdf:about="#Project_POME_CoFiring">
+    <rdf:type rdf:resource="#WasteManagement"/>
+    <projectID>
+        PRJ-2024-18003
+    </projectID>
+    <projectName>
+        Pemanfaatan Limbah Pabrik Kelapa Sawit (POME) untuk Biogas Co-Firing
+    </projectName>
+    <projectDescription>
+        Utilization of Palm Oil Mill Effluent (POME) for biogas co-firing to reduce greenhouse gas emissions.
+    </projectDescription>
+    <projectStatus>
+        Published
+    </projectStatus>
+    <usesMethodology rdf:resource="#NationalMethodology001"/>
+    <locatedIn rdf:resource="#Riau"/>
+    <governedBy rdf:resource="#Perpres1102025"/>
+    <hasCarbonCredit rdf:resource="#CarbonCredit_POME_CoFiring"/>
+</owl:NamedIndividual>
+
+
+<!-- METHODOLOGY -->
+
+<!-- VALIDATOR -->
+<owl:NamedIndividual rdf:about="#Validator03">
+    <rdf:type rdf:resource="#Validator"/>
+    <rdfs:label>
+        Validator03
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- VERIFIER -->
+<owl:NamedIndividual rdf:about="#Verifier03">
+    <rdf:type rdf:resource="#Verifier"/>
+    <rdfs:label>
+        Verifier03
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- VALIDATION -->
+<owl:NamedIndividual rdf:about="#Validation_POME_CoFiring">
+    <rdf:type rdf:resource="#Validation"/>
+    <validatedBy rdf:resource="#Validator03"/>
+    <hasDocument rdf:resource="#ValidationReport_POME_CoFiring"/>
+    <generatesReport rdf:resource="#ValidationReport_POME_CoFiring"/>
+</owl:NamedIndividual>
+
+
+<!-- VALIDATION REPORT -->
+<owl:NamedIndividual rdf:about="#ValidationReport_POME_CoFiring">
+    <rdf:type rdf:resource="#ValidationReport"/>
+    <documentNumber>
+        VAL-2025-003
+    </documentNumber>
+    <documentStatus>
+        Approved
+    </documentStatus>
+</owl:NamedIndividual>
+
+<!-- VERIFICATION -->
+<owl:NamedIndividual rdf:about="#Verification_POME_CoFiring">
+    <rdf:type rdf:resource="#Verification"/>
+    <verifiedBy rdf:resource="#Verifier03"/>
+    <hasEvidence rdf:resource="#MonitoringData_POME_CoFiring"/>
+    <generatesReport rdf:resource="#VerificationReport_POME_CoFiring"/>
+</owl:NamedIndividual>
+
+
+<!-- VERIFICATION REPORT -->
+
+<owl:NamedIndividual rdf:about="#VerificationReport_POME_CoFiring">
+    <rdf:type rdf:resource="#VerificationReport"/>
+    <documentNumber>
+        VER-2025-003
+    </documentNumber>
+    <documentStatus>
+        Verified
+    </documentStatus>
+</owl:NamedIndividual>
+
+<!-- EVIDENCE -->
+
+<owl:NamedIndividual rdf:about="#MonitoringData_POME_CoFiring">
+    <rdf:type rdf:resource="#MonitoringData"/>
+    <evidenceType>
+        POME Biogas Co-Firing Monitoring Data
+    </evidenceType>
+</owl:NamedIndividual>
+
+<!-- CARBON CREDIT -->
+
+<owl:NamedIndividual rdf:about="#CarbonCredit_POME_CoFiring">
+    <rdf:type rdf:resource="#CarbonCredit"/>
+    <carbonAmount
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+        12280
+    </carbonAmount>
+
+    <serialNumber>
+        SPE-11-PR-IV-2024-18003 (1 - 12280)
+    </serialNumber>
+
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-10-25
+    </issueDate>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- CERTIFICATE -->
+
+<owl:NamedIndividual rdf:about="#Certificate_POME_CoFiring">
+    <rdf:type rdf:resource="#SPECertificate"/>
+    <certificateNumber>
+        SPE-11-PR-IV-2024-18003
+    </certificateNumber>
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-10-25
+    </issueDate>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- PUBLICATION -->
+
+<owl:NamedIndividual rdf:about="#Publication_POME_CoFiring">
+    <rdf:type rdf:resource="#Publication"/>
+    <issuesCertificate rdf:resource="#Certificate_POME_CoFiring"/>
+</owl:NamedIndividual>
+
+<!-- Data Linked -->
+
+<!-- Project -->
+
+<rdf:Description rdf:about="#Project_POME_CoFiring">
+    <hasDocument rdf:resource="#DRAM_POME_CoFiring"/>
+    <hasDocument rdf:resource="#DRAMFinal_POME_CoFiring"/>
+    <hasDocument rdf:resource="#LCAM_POME_CoFiring"/>
+    <hasDocument rdf:resource="#ValidationReport_POME_CoFiring"/>
+    <hasDocument rdf:resource="#VerificationReport_POME_CoFiring"/>
+</rdf:Description>
+
+<!-- Proposal -->
+
+<rdf:Description rdf:about="#Proposal_POME_CoFiring">
+    <submittedBy rdf:resource="#PTPN_IV_Regional3"/>
+    <hasDocument rdf:resource="#DRAM_POME_CoFiring"/>
+</rdf:Description>
+
+<!-- DRAM -->
+
+<rdf:Description rdf:about="#DRAM_POME_CoFiring">
+    <basedOn rdf:resource="#Proposal_POME_CoFiring"/>
+</rdf:Description>
+
+<!-- DRAMFinal -->
+
+<rdf:Description rdf:about="#DRAMFinal_POME_CoFiring">
+    <basedOn rdf:resource="#DRAM_POME_CoFiring"/>
+</rdf:Description>
+
+<!-- Validation -->
+
+<rdf:Description rdf:about="#Validation_POME_CoFiring">
+    <basedOn rdf:resource="#DRAMFinal_POME_CoFiring"/>
+</rdf:Description>
+
+<!-- LCAM -->
+
+<rdf:Description rdf:about="#LCAM_POME_CoFiring">
+    <basedOn rdf:resource="#DRAMFinal_POME_CoFiring"/>
+</rdf:Description>
+
+<!-- Verification -->
+
+<rdf:Description rdf:about="#Verification_POME_CoFiring">
+    <basedOn rdf:resource="#LCAM_POME_CoFiring"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#VerificationReport_POME_CoFiring">
+    <basedOn rdf:resource="#LCAM_POME_CoFiring"/>
+</rdf:Description>
+
+<!-- Publication -->
+
+<rdf:Description rdf:about="#Publication_POME_CoFiring">
+    <basedOn rdf:resource="#Verification_POME_CoFiring"/>
+</rdf:Description>
+
+
+<!-- Certificate -->
+<rdf:Description rdf:about="#Certificate_POME_CoFiring">
+    <issuedUnder rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+<!-- Project -->
+
+<rdf:Description rdf:about="#Project_POME_CoFiring">
+    <governedBy rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+<!-- Instance 4-->
+
+<!-- ORGANIZATION -->
+
+<owl:NamedIndividual rdf:about="#PTUPCSidrapBayuEnergi">
+    <rdf:type rdf:resource="#ProjectDeveloper"/>
+    <rdfs:label>
+        PT UPC Sidrap Bayu Energi
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- LOCATION -->
+
+<owl:NamedIndividual rdf:about="#SouthSulawesi">
+    <rdf:type rdf:resource="#Province"/>
+    <provinceName>
+        South Sulawesi
+    </provinceName>
+</owl:NamedIndividual>
+
+
+<owl:NamedIndividual rdf:about="#SidenrengRappang">
+    <rdf:type rdf:resource="#Regency"/>
+    <regencyName>
+        Sidenreng Rappang
+    </regencyName>
+</owl:NamedIndividual>
+
+
+<!-- PROJECT -->
+
+<owl:NamedIndividual rdf:about="#Project_Sidrap_WindFarm">
+    <rdf:type rdf:resource="#RenewableEnergy"/>
+    <projectID>
+        PRJ-2022-11275
+    </projectID>
+    <projectName>
+        Aksi Mitigasi Perubahan Iklim Proyek PLTB Sidrap 75 MW
+    </projectName>
+    <projectDescription>
+        Pendaftaran dan Verifikasi Proyek PLTB Sidrap 75 MW melalui Gold Standard (Periode Ke-3)
+    </projectDescription>
+    <projectStatus>
+        Published
+    </projectStatus>
+    <usesMethodology rdf:resource="#GoldStandardMethodology"/>
+    <locatedIn rdf:resource="#SidenrengRappang"/>
+    <governedBy rdf:resource="#Perpres1102025"/>
+    <hasCarbonCredit rdf:resource="#CarbonCredit_Sidrap"/>
+</owl:NamedIndividual>
+
+
+<!-- METHODOLOGY -->
+<owl:NamedIndividual rdf:about="#GoldStandardMethodology">
+    <rdf:type rdf:resource="#Methodology"/>
+    <methodologyCode>
+        GS-RE-001
+    </methodologyCode>
+    <methodologyName>
+        Gold Standard Renewable Energy Methodology
+    </methodologyName>
+</owl:NamedIndividual>
+
+
+<!-- VALIDATOR -->
+<owl:NamedIndividual rdf:about="#Validator04">
+    <rdf:type rdf:resource="#Validator"/>
+    <rdfs:label>
+        Validator04
+    </rdfs:label>
+</owl:NamedIndividual>
+
+
+<!-- VERIFIER -->
+<owl:NamedIndividual rdf:about="#Verifier04">
+    <rdf:type rdf:resource="#Verifier"/>
+    <rdfs:label>
+        Verifier04
+    </rdfs:label>
+</owl:NamedIndividual>
+
+<!-- VALIDATION -->
+<owl:NamedIndividual rdf:about="#Validation_Sidrap">
+    <rdf:type rdf:resource="#Validation"/>
+    <validatedBy rdf:resource="#Validator03"/>
+    <hasDocument rdf:resource="#ValidationReport_Sidrap"/>
+    <generatesReport rdf:resource="#ValidationReport_Sidrap"/>
+</owl:NamedIndividual>
+
+
+<!-- VALIDATION REPORT -->
+<owl:NamedIndividual rdf:about="#ValidationReport_Sidrap">
+    <rdf:type rdf:resource="#ValidationReport"/>
+    <documentNumber>
+        VAL-2025-004
+    </documentNumber>
+    <documentStatus>
+        Approved
+    </documentStatus>
+</owl:NamedIndividual>
+
+
+<!-- VERIFICATION -->
+<owl:NamedIndividual rdf:about="#Verification_Sidrap">
+    <rdf:type rdf:resource="#Verification"/>
+    <verifiedBy rdf:resource="#Verifier04"/>
+    <hasEvidence rdf:resource="#MonitoringData_Sidrap"/>
+    <generatesReport rdf:resource="#VerificationReport_Sidrap"/>
+</owl:NamedIndividual>
+
+
+
+<!-- VERIFICATION REPORT -->
+
+<owl:NamedIndividual rdf:about="#VerificationReport_Sidrap">
+    <rdf:type rdf:resource="#VerificationReport"/>
+    <documentNumber>
+        VER-2025-004
+    </documentNumber>
+    <documentStatus>
+        Verified
+    </documentStatus>
+</owl:NamedIndividual>
+
+<!-- EVIDENCE -->
+
+<owl:NamedIndividual rdf:about="#MonitoringData_Sidrap">
+    <rdf:type rdf:resource="#MonitoringData"/>
+    <evidenceType>
+        Wind Turbine Electricity Generation Monitoring Data
+    </evidenceType>
+</owl:NamedIndividual>
+
+<!-- CARBON CREDIT -->
+
+<owl:NamedIndividual rdf:about="#CarbonCredit_Sidrap">
+    <rdf:type rdf:resource="#CarbonCredit"/>
+    <carbonAmount
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+        1000
+    </carbonAmount>
+    <serialNumber>
+        SPE-10-PR-XI-2022-11275 (1 - 1000)
+    </serialNumber>
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-10-23
+    </issueDate>
+    <originStandard>
+        SPEI
+    </originStandard>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- CERTIFICATE -->
+
+<owl:NamedIndividual rdf:about="#Certificate_Sidrap">
+    <rdf:type rdf:resource="#SPECertificate"/>
+    <certificateNumber>
+        SPE-10-PR-XI-2022-11275
+    </certificateNumber>
+
+    <issueDate
+        rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        2025-10-23
+    </issueDate>
+    <registeredIn rdf:resource="#SPEI"/>
+</owl:NamedIndividual>
+
+<!-- PUBLICATION -->
+
+<owl:NamedIndividual rdf:about="#Publication_Sidrap">
+    <rdf:type rdf:resource="#Publication"/>
+    <issuesCertificate rdf:resource="#Certificate_Sidrap"/>
+</owl:NamedIndividual>
+
+<!-- Data Linked -->
+
+<!-- Project -->
+
+<rdf:Description rdf:about="#Project_Sidrap_WindFarm">
+    <hasDocument rdf:resource="#DRAM_Sidrap"/>
+    <hasDocument rdf:resource="#DRAMFinal_Sidrap"/>
+    <hasDocument rdf:resource="#LCAM_Sidrap"/>
+    <hasDocument rdf:resource="#ValidationReport_Sidrap"/>
+    <hasDocument rdf:resource="#VerificationReport_Sidrap"/>
+</rdf:Description>
+
+<!-- Proposal -->
+
+<rdf:Description rdf:about="#Proposal_Sidrap">
+    <submittedBy rdf:resource="#PTUPCSidrapBayuEnergi"/>
+    <hasDocument rdf:resource="#DRAM_Sidrap"/>
+</rdf:Description>
+
+<!-- DRAM -->
+
+<rdf:Description rdf:about="#DRAM_Sidrap">
+    <basedOn rdf:resource="#Proposal_Sidrap"/>
+</rdf:Description>
+
+<!-- DRAMFinal -->
+
+<rdf:Description rdf:about="#DRAMFinal_Sidrap">
+    <basedOn rdf:resource="#DRAM_Sidrap"/>
+</rdf:Description>
+
+<!-- Validation -->
+
+<rdf:Description rdf:about="#Validation_Sidrap">
+    <basedOn rdf:resource="#DRAMFinal_Sidrap"/>
+</rdf:Description>
+
+<!-- LCAM -->
+
+<rdf:Description rdf:about="#LCAM_Sidrap">
+    <basedOn rdf:resource="#DRAMFinal_Sidrap"/>
+</rdf:Description>
+
+<!-- Verification -->
+
+<rdf:Description rdf:about="#Verification_Sidrap">
+    <basedOn rdf:resource="#LCAM_Sidrap"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#VerificationReport_Sidrap">
+    <basedOn rdf:resource="#LCAM_Sidrap"/>
+</rdf:Description>
+
+<!-- Publication -->
+<rdf:Description rdf:about="#Publication_Sidrap">
+    <basedOn rdf:resource="#Verification_Sidrap"/>
+</rdf:Description>
+
+<!-- Certificate -->
+<rdf:Description rdf:about="#Certificate_Sidrap">
+    <issuedUnder rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+<!-- Project -->
+
+<rdf:Description rdf:about="#Project_Sidrap_WindFarm">
+    <governedBy rdf:resource="#Perpres1102025"/>
+</rdf:Description>
+
+
+</rdf:RDF>
